@@ -4,7 +4,8 @@
   "description": "Scanner App Api",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts"
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/http/server.ts",
+    "start": "ts-node -r tsconfig-paths/register src/shared/http/server.ts"
   },
   "keywords": [],
   "author": "Samuel Gomes",
@@ -23,7 +24,8 @@
     "multer": "^1.4.2",
     "pdfkit": "^0.12.1",
     "reflect-metadata": "^0.1.13",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.0.0"
   },
   "devDependencies": {
     "@types/ejs": "^3.0.6",

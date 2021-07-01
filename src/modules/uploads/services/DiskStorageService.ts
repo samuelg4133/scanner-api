@@ -31,7 +31,7 @@ export default class DiskStorageService implements IStorageProvider {
         });
 
         const serverPath =
-            '\\\\10.11.26.1\\atendimento$\\CADASTRO\\CADASTRO_RETAGUARDA\\DIGITALIZAÇÕES SS';
+            '/run/user/1000/gvfs/smb-share:server=10.11.26.1,share=atendimento$/CADASTRO/CADASTRO_RETAGUARDA/DIGITALIZAÇÕES SS';
 
         const loginPath = path.resolve(serverPath, login);
         const folderPath = path.resolve(loginPath, folder);
@@ -39,11 +39,11 @@ export default class DiskStorageService implements IStorageProvider {
         if (fs.existsSync(folderPath)) {
             doc.pipe(
                 fs.createWriteStream(
-                    `${folderPath}\\${filename}${Date.now()}.pdf`,
+                    `${folderPath}/${filename}${Date.now()}.pdf`,
                 ),
             );
             for (let f in fileList) {
-                doc.addPage().image(`${filePath}\\${fileList[f]}`, 0, 0, {
+                doc.addPage().image(`${filePath}/${fileList[f]}`, 0, 0, {
                     width: 595.28,
                     height: 841.89,
                 });
@@ -55,11 +55,11 @@ export default class DiskStorageService implements IStorageProvider {
                 fs.mkdirSync(folderPath);
                 doc.pipe(
                     fs.createWriteStream(
-                        `${folderPath}\\${filename}${Date.now()}.pdf`,
+                        `${folderPath}/${filename}${Date.now()}.pdf`,
                     ),
                 );
                 for (let f in fileList) {
-                    doc.addPage().image(`${filePath}\\${fileList[f]}`, 0, 0, {
+                    doc.addPage().image(`${filePath}/${fileList[f]}`, 0, 0, {
                         width: 595.28,
                         height: 841.89,
                     });
@@ -69,11 +69,11 @@ export default class DiskStorageService implements IStorageProvider {
                 fs.mkdirSync(folderPath);
                 doc.pipe(
                     fs.createWriteStream(
-                        `${folderPath}\\${filename}${Date.now()}.pdf`,
+                        `${folderPath}/${filename}${Date.now()}.pdf`,
                     ),
                 );
                 for (let f in fileList) {
-                    doc.addPage().image(`${filePath}\\${fileList[f]}`, 0, 0, {
+                    doc.addPage().image(`${filePath}/${fileList[f]}`, 0, 0, {
                         width: 595.28,
                         height: 841.89,
                     });
